@@ -53,7 +53,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 # ----------------------------------------------------------------
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/TEAMMUSARRAT/SONALI",
+    "https://github.com/TEAM-ISTKHAR/MUSARRAT",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv(
@@ -64,8 +64,8 @@ GIT_TOKEN = getenv(
 
 # ------------------------------------------------------------------------
 # -------------------------------------------------------------------------
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/MUSARRAT_SUPPORT")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/MUSARRAT_UPDATES")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/PURVI_SUPPORT")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/+czQ48LDbT1cxMWQ1")
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 
