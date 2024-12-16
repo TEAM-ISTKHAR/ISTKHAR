@@ -69,17 +69,17 @@ def stream_markup_timer(_, chat_id, played, dur):
         [
             InlineKeyboardButton(
                 text="✪ʟɪꜰᴇ✪",
-                url=f"https://t.me/SweetToxicSupport",
+                url=f"https://t.me/CRAZY_OP_02",
             ),
             InlineKeyboardButton(
                 text="✪ᴊᴀɴɴ✪",
-                url=f"https://t.me/kaalCarder",
+                url=f"https://t.me/PURVI_SUPPORT",
             ),
         ],
         [
             InlineKeyboardButton(
                 text="✪ᴏᴡɴᴇʀ✪",
-                url=f"t.me/WereWolfDemon",
+                url=f"t.me/ll_THUNDER_lll",
             ),
         ],
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
@@ -102,14 +102,14 @@ def stream_markup(_, chat_id):
 
                 text="✪ʟɪꜰᴇ✪",
 
-                url=f"https://t.me/SweetToxicSupport",
+                url=f"https://t.me/CRAZY_OP_02",
 
             ),
             InlineKeyboardButton(
 
                 text="✪ᴊᴀɴɴ✪",
 
-                url=f"https://t.me/kaalCarder",
+                url=f"https://t.me/PURVI_SUPPORT",
 
             ),
         ],
@@ -119,7 +119,7 @@ def stream_markup(_, chat_id):
 
                 text="✪ᴏᴡɴᴇʀ✪",
 
-                url=f"t.me/WereWolfDemon",
+                url=f"t.me/ll_THUNDER_lll",
 
             ),
         ],
