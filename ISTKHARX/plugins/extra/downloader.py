@@ -1,7 +1,7 @@
 import asyncio
 import os
 import time
-from time import time
+from ISTKHARX time import time
 import wget
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
