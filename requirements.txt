@@ -2,7 +2,7 @@ aiofiles
 aiohttp
 asyncio
 beautifulsoup4
-dnISTKHARXthon
+pip install --upgrade pip
 ffmpeg-python
 gitpython
 hachoir
