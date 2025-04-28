@@ -50,10 +50,12 @@ async def init():
         pass
     await ISTKHAR.decorators()
     LOGGER("ISTKHARX").info(
-        "ᴍᴜsɪᴄ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ, ɴᴏᴡ ɢɪʙ ʏᴏᴜʀ ɢɪʀʟғʀɪᴇɴᴅ ᴄʜᴜᴛ ɪɴ @ll_ISTKHAR_BABY_lll idle()
+        "ᴍᴜsɪᴄ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ, ɴᴏᴡ ɢɪʙ ʏᴏᴜʀ ɢɪʀʟғʀɪᴇɴᴅ ᴄʜᴜᴛ ɪɴ @LOVE_FEELINGS_WILL1"
+    )
+    await idle()
     await app.stop()
     await userbot.stop()
-    LOGGER("ISTKHARX").info("ᴍᴀᴀ ᴄʜᴜᴅᴀ ᴍᴀɪɴ ʙᴏᴛ ʙᴀɴᴅ ᴋᴀʀ ʀʜᴀ Alexa Mᴜsɪᴄ Bᴏᴛ...")
+    LOGGER("ISTKHARX").info("ᴍᴀᴀ ᴄʜᴜᴅᴀ ᴍᴀɪɴ ʙᴏᴛ ʙᴀɴᴅ ᴋᴀʀ ʀʜᴀ Sᴘʏ Mᴜsɪᴄ Bᴏᴛ...")
 
 
 if __name__ == "__main__":
