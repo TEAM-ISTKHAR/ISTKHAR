@@ -71,8 +71,8 @@ async def get_thumb(videoid):
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.5)
         draw = ImageDraw.Draw(background)
-        arial = ImageFont.truetype("PURVIMUSIC/assets/font2.ttf", 30)
-        font = ImageFont.truetype("PURVIMUSIC/assets/font.ttf", 30)
+        arial = ImageFont.truetype("ISTKHARX/assets/font2.ttf", 30)
+        font = ImageFont.truetype("ISTKHARX/assets/font.ttf", 30)
         text_size = draw.textsize("TEAM PURVI BOTS    ", font=font)
         draw.text((1280 - text_size[0] - 10, 10), "TEAM THUNDER BOTS    ", fill="white", font=font)
         draw.text(
