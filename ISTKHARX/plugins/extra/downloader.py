@@ -2,7 +2,6 @@ import asyncio
 import os
 import time
 from time import time
-import wget
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from youtubesearchpython import SearchVideos
