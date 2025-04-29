@@ -1,14 +1,18 @@
 import time
-import random 
+import random
+import asyncio
 from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtubesearchpython.__future__ import VideosSearch
 
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 import config
 from ISTKHARX import app
 from ISTKHARX.misc import _boot_
 from ISTKHARX.plugins.sudo.sudoers import sudoers_list
+from ISTKHARX.utils.database import get_served_chats, get_served_users, get_sudoers
+from ISTKHARX.utils import bot_sys_stats
 from ISTKHARX.utils.database import (
     add_served_chat,
     add_served_user,
@@ -19,30 +23,59 @@ from ISTKHARX.utils.database import (
 )
 from ISTKHARX.utils.decorators.language import LanguageStart
 from ISTKHARX.utils.formatters import get_readable_time
-from ISTKHARX.utils.inline import first_page, private_panel, start_panel
+from ISTKHARX.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
+#--------------------------
 
-VALID_EMOJII = ["🔥", "💋", "🥺", "😒", "💖",
-                "💘", "💕", "✨", "🥰", "🍌", "💔",
-                "😓", "🫧"]
+NEXI_VID = [
+"https://graph.org/file/eaa3a2602e43844a488a5.jpg",
+"https://graph.org/file/b129e98b6e5c4db81c15f.jpg",
+"https://graph.org/file/3ccb86d7d62e8ee0a2e8b.jpg",
+"https://graph.org/file/df11d8257613418142063.jpg",
+"https://graph.org/file/9e23720fedc47259b6195.jpg",
+"https://graph.org/file/826485f2d7db6f09db8ed.jpg",
+"https://graph.org/file/ff3ad786da825b5205691.jpg",
+"https://graph.org/file/52713c9fe9253ae668f13.jpg",
+"https://graph.org/file/8f8516c86677a8c91bfb1.jpg",
+"https://graph.org/file/6603c3740378d3f7187da.jpg",
+"https://graph.org/file/66cb6ec40eea5c4670118.jpg",
+"https://graph.org/file/2e3cf4327b169b981055e.jpg",
+]
 
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
 async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
-    random_emoji = random.choice(VALID_EMOJII)  # Pick a valid emoji
-    try:
-        await message.react(random_emoji)
-    except Exception as e:
-        print(f"Error reacting with emoji: {e}")
+
+    # Typing effect part
+    typing_message = await message.reply("<b>ᴅɪηɢ..ᴅσηɢ..🥀</b>")  # Initial message
+
+    # Simulate typing
+    typing_text = "<b>𝖲ᴛᴧʀᴛɪηɢ...❤️‍🔥</b>**"
+
+    for i in range(1, len(typing_text) + 1):  # Loop through each character
+        try:
+            await typing_message.edit_text(typing_text[:i])
+            await asyncio.sleep(0.001)  # Add delay to simulate typing
+        except Exception as e:
+            print(f"Error while editing message: {e}")  # Print error if occurs
+
+    await asyncio.sleep(1)  # Keep message for a while
+    await typing_message.delete()  # Delete the message
+
+    # Continue with the existing logic after typing effect
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
+
+        if name[0:3] == "del":
+            await del_plist_msg(client=client, message=message, _=_)
+
         if name[0:4] == "help":
-            keyboard = first_page(_)
+            keyboard = help_pannel(_)
             return await message.reply_photo(
-                photo=config.START_IMG_URL,
+                random.choice(NEXI_VID),
                 caption=_["help_1"].format(config.SUPPORT_CHAT),
                 reply_markup=keyboard,
             )
@@ -93,16 +126,28 @@ async def start_pm(client, message: Message, _):
                 )
     else:
         out = private_panel(_)
-                await message.reply_photo(
-            photo=config.START_IMG_URL,
-            caption=_["start_2"].format(message.from_user.mention, app.mention, UP, DISK, CPU, RAM),
+        await message.reply_photo(
+            random.choice(NEXI_VID),
+            caption=_["start_2"].format(message.from_user.mention, app.mention),
             reply_markup=InlineKeyboardMarkup(out),
         )
         if await is_on_off(2):
             return await app.send_message(
-                chat_id=config.LOG_GROUP_ID,
+                chat_id=config.LOGGER_ID,
                 text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
             )
+
+
+@app.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
+@LanguageStart
+async def start_gp(client, message: Message, _):
+    out = start_panel(_)
+    uptime = int(time.time() - _boot_)
+    await message.reply_photo(
+        random.choice(NEXI_VID),
+        caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
+        reply_markup=InlineKeyboardMarkup(out),
+    )
     return await add_served_chat(message.chat.id)
 
 
@@ -134,9 +179,9 @@ async def welcome(client, message: Message):
 
                 out = start_panel(_)
                 await message.reply_photo(
-                    photo=config.START_IMG_URL,
+                    random.choice(NEXI_VID),
                     caption=_["start_3"].format(
-                        message.from_user.first_name,
+                        message.from_user.mention,
                         app.mention,
                         message.chat.title,
                         app.mention,
