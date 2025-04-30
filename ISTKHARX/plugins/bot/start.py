@@ -1,7 +1,7 @@
 import time
 
 from pyrogram import filters
-from pyrogram.enums import ChatType
+from pyrogram.enums import ChatType, ParseMode
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtubesearchpython.__future__ import VideosSearch
 
@@ -84,6 +84,7 @@ async def start_pm(client, message: Message, _):
                 return await app.send_message(
                     chat_id=config.LOG_GROUP_ID,
                     text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                    parse_mode=ParseMode.HTML
                 )
     else:
         out = private_panel(_)
@@ -97,6 +98,7 @@ async def start_pm(client, message: Message, _):
             return await app.send_message(
                 chat_id=config.LOG_GROUP_ID,
                 text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                parse_mode=ParseMode.HTML
             )
 
 
@@ -148,7 +150,7 @@ async def welcome(client, message: Message):
             ┣★ <b>Join Here</b> -: @DPZ_STYLES_WORLD
             ┣★ <b>Note</b> -: This Is Only For Welcome For My Owner {member.mention}
             """
-                    sent_message = await message.reply_text(owner, reply_markup=buttons, parse_mode="HTML")
+                    sent_message = await message.reply_text(owner, reply_markup=buttons, parse_mode=ParseMode.HTML)
                     await asyncio.sleep(180)
                     await sent_message.delete()
                     return
@@ -174,7 +176,7 @@ async def welcome(client, message: Message):
                     sent_message = await message.reply_text(
                         owner, 
                         reply_markup=buttons,
-                        parse_mode="HTML"
+                        parse_mode=ParseMode.HTML
                     )
                     await asyncio.sleep(180)
                     await sent_message.delete()
