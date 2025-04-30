@@ -130,26 +130,60 @@ async def welcome(client, message: Message):
                 ]
             )
 
-            if isinstance(config.OWNER_ID, int): 
+            if isinstance(config.OWNER_ID, int):
                 if member.id == config.OWNER_ID:
-                    owner = f"#BOT_OWNER\n\n 𝙎𝙩𝙖𝙮 𝘼𝙡𝙚𝙧𝙩 ⚠️\n\n{member.mention} 𝙊𝙬𝙣𝙚𝙧 𝗢𝗳 {app.mention} 𝙟𝙪𝙨𝙩 𝙟𝙤𝙞𝙣𝙚𝙙 𝙩𝙝𝙚 𝙜𝙧𝙤𝙪𝙥 <code>{message.chat.title}</code>.\n\n𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗠𝗲 𝗛𝗲𝗿𝗲 👇🏻🤭💕\n\n┏━━━━━━━━━━━━┓\n┣★ 𝗨𝗽𝗱𝗮𝘁𝗲 -: @Music_World_Update\n┣★ 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 -: @Music_World_Support\n┣★ 𝗕𝗼𝘁 𝗨𝘀𝗲𝗿𝗡𝗮𝗺𝗲 -: @{app.username}\n┣★ 𝗝𝗼𝗶𝗻 𝗛𝗲𝗿𝗲 -: @DPZ_STYLES_WORLD\n┣★ 𝙉𝙤𝙩𝙚  -: 𝗧𝗵𝗶𝘀 𝗜𝘀 𝗢𝗻𝗹𝘆 𝗙𝗼𝗿 𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝗙𝗼𝗿 𝗠𝘆 𝗢𝘄𝗻𝗲𝗿 {member.mention}."
-                    sent_message = await message.reply_text(owner, reply_markup=buttons)
+                    owner = f"""
+            <b>#BOT_OWNER</b>
+            
+            𝙎𝙩𝙖𝙮 𝘼𝙡𝙚𝙧𝙩 ⚠️
+            
+            {member.mention} <b>Owner Of</b> {app.mention} <b>just joined the group</b> <code>{message.chat.title}</code>.
+            
+            <b>Support Me Here 👇🏻🤭💕</b>
+            
+            ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            ┣★ <b>Update</b> -: @Music_World_Update
+            ┣★ <b>Support</b> -: @Music_World_Support
+            ┣★ <b>Bot Username</b> -: @{app.username}
+            ┣★ <b>Join Here</b> -: @DPZ_STYLES_WORLD
+            ┣★ <b>Note</b> -: This Is Only For Welcome For My Owner {member.mention}
+            """
+                    sent_message = await message.reply_text(owner, reply_markup=buttons, parse_mode="HTML")
                     await asyncio.sleep(180)
-                    await sent_message.delete()  
+                    await sent_message.delete()
                     return
 
-            elif isinstance(config.OWNER_ID, (list, set)): 
+            elif isinstance(config.OWNER_ID, (list, set)):
                 if member.id in config.OWNER_ID:
-                    owner = f"#BOT_OWNER\n\n 𝙎𝙩𝙖𝙮 𝘼𝙡𝙚𝙧𝙩 ⚠️\n\n{member.mention} 𝙊𝙬𝙣𝙚𝙧 𝗢𝗳 {app.mention} 𝙟𝙪𝙨𝙩 𝙟𝙤𝙞𝙣𝙚𝙙 𝙩𝙝𝙚 𝙜𝙧𝙤𝙪𝙥 <code>{message.chat.title}</code>.\n\n𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗠𝗲 𝗛𝗲𝗿𝗲 👇🏻🤭💕\n\n┏━━━━━━━━━━━━┓\n┣★ 𝗨𝗽𝗱𝗮𝘁𝗲 -: @Music_World_Update\n┣★ 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 -: @Music_World_Support\n┣★ 𝗕𝗼𝘁 𝗨𝘀𝗲𝗿𝗡𝗮𝗺𝗲 -: @{app.username}\n┣★ 𝗝𝗼𝗶𝗻 𝗛𝗲𝗿𝗲 -: @DPZ_STYLES_WORLD\n┣★ 𝙉𝙤𝙩𝙚  -: 𝗧𝗵𝗶𝘀 𝗜𝘀 𝗢𝗻𝗹𝘆 𝗙𝗼𝗿 𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝗙𝗼𝗿 𝗠𝘆 𝗢𝘄𝗻𝗲𝗿 {member.mention}."
-                    sent_message = await message.reply_text(owner, reply_markup=buttons)
-                    await asyncio.sleep(180) 
-                    await sent_message.delete()  
+                    owner = f"""
+            <b>#BOT_OWNER</b>
+            
+            𝙎𝙩𝙖𝙮 𝘼𝙡𝙚𝙧𝙩 ⚠️
+            
+            {member.mention} <b>Owner Of</b> {app.mention} <b>just joined the group</b> <code>{message.chat.title}</code>.
+            
+            <b>Support Me Here 👇🏻🤭💕</b>
+            
+            ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            ┣★ <b>Update</b> -: @Music_World_Update
+            ┣★ <b>Support</b> -: @Music_World_Support
+            ┣★ <b>Bot Username</b> -: @{app.username}
+            ┣★ <b>Join Here</b> -: @DPZ_STYLES_WORLD
+            ┣★ <b>Note</b> -: This Is Only For Welcome For My Owner {member.mention}
+            """
+                    sent_message = await message.reply_text(
+                        owner, 
+                        reply_markup=buttons,
+                        parse_mode="HTML"
+                    )
+                    await asyncio.sleep(180)
+                    await sent_message.delete()
                     return
-
-        return
-    except Exception as e:
-        print(f"Error in welcome handler: {e}")
-        return
+            
+                    return
+                except Exception as e:
+                    print(f"Error in welcome handler: {e}")
+                    return
 
 
 
